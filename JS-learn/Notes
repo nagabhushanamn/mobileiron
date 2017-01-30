@@ -1,0 +1,76 @@
+
+
+  js-lang is
+
+  ==> scripting lang for web-pages in browser-envi
+  +
+  ==> server-side lang on Node.js
+  ==> mobile appln
+
+
+  js-lang  features
+
+  ==> functinal pgmming , OOP
+  ==> dynamic data-types
+  ==> closure support
+
+  ==> single-threaded lang , can acheive better concurrency
+  ==> Non Blocking IO
+
+  ---------------------------------------------
+
+  where/when i shud use .js lang ?
+
+  on event, execute func asycnh
+
+  ==============================================
+
+
+  JS-lang is an impln of 'ECMAScript' spec
+
+  latest release : ECMA-2015 or ES6
+
+ ==============================================
+
+
+ how to run .js programs ?
+
+ we need 'JS-engine'
+
+ browser-envi
+
+ chrome  ==> v8(c++)
+ firefoc ==> rhino(java)
+ IE      ==> chakra
+ safari  ==> nitro
+
+ non browser envi
+
+ Node.js ==> v8
+ JVM     ==> rhino / nashorn
+ Apache CouchDB
+
+
+ JS-engines are based on  'ECMAScript' spec
+
+ --------------------------------------------------
+
+ JS topics
+
+
+ 1. data structures/types
+ 2. execuetion contexts
+ 3. functions depth 
+ 4. owner of execution-context ==> this
+ 5. closures
+ 6. objects depth
+ 7. Inheritance
+ 8. ES6 new features
+ 9. concurrency model  ( callbacks )
+ 10. JS-lang with pages in browser
+
+
+--------------------------------------------------
+
+
+ 
