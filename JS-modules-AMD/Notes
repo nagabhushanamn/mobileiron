@@ -1,0 +1,20 @@
+
+
+
+js-module standards
+
+
+  1. AMD ( Async Module Definition) spec
+
+     to define new module
+     -------------------------
+
+     define('mid',[],factory);
+
+     to load/import module
+     ----------------------
+     require(config,[],callback);
+
+
+  
+  2. commonJS

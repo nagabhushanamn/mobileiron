@@ -67,6 +67,7 @@
  7. Inheritance
  8. ES6 new features
  9. concurrency model  ( callbacks )
+ 
  10. JS-lang with pages in browser
 
 
@@ -74,3 +75,29 @@
 
 
  
+
+  .js-lang
+
+
+   ==> single-threaded , can implement concurrency
+   ==> Non-Blocking IO model
+
+  
+  -----------------------------------
+
+  browser e.g chrome
+
+  1. JS-engine  ( v8 )
+
+     single-call-stack ==> to execute contexts
+     heap  ==> to keep objects
+
+
+  2. browser's API ( e.g DOM , XHR , Timer , HTML5 APIs)  ==> based on w3c standards
+
+  3. event/callback/message queue
+
+  4. Event-Loop
+
+
+  -------------------------------------------------
