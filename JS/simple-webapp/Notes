@@ -1,0 +1,70 @@
+
+
+wat .js-lag can do on HTML-page in browser ?
+
+
+ can bring any dynamic activity with browser provided APIs
+
+
+ browser APIs implemented and abstracted as /js objects and functions
+
+ browser APIs ==> DOM , XHR , ....
+
+using DOM
+----------
+ -> can create,retreive,update,delete HTML elements
+ -> can change element's attributes
+ -> can change element's style
+ -> can change element's inner-content
+ -> can listen events on elements
+ -> can create rich UI components
+
+using XHR
+----------
+ -> can communicate with server async , update results on page.
+
+Timer API
+
+HTML5 APIs
+
+//-------------------------------------------------------------
+
+
+
+limitations of plain-js code
+----------------------------
+
+
+ --> browser compatibility
+ --> too much code for simple oprns
+ --> performance issues  ( DOM selection/manipulation)
+ --> memory management
+
+ --> data-binding is manual
+ --> code oraganization is difficult.
+
+ -------------------------------------------
+
+ soln : 
+
+ using Libraries and F.Ws
+
+ --> underscore / lodash
+ --> jQuery
+ --> KO
+ --> backbone
+ --> Angular
+ --> React
+
+
+ -------------------------------------------
+
+ --> DOJO
+
+ ------------------------------------------
+ --> Ext js  from sencha
+ ------------------------------------------
+
+
+
+
