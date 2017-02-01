@@ -18,3 +18,12 @@
 // });
 
 
+$(document).ready(function () {
+    var $box = $('.jumbotron');
+    $('.btn-danger').click(function () {
+        $box.hide(5000);
+    });
+    $('.btn-primary').click(function () {
+        $box.show(5000);
+    });
+})
