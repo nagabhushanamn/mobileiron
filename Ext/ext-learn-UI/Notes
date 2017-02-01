@@ -1,0 +1,22 @@
+
+
+
+UI components ==> HTML-markup+css+JS + ( data + icons + images )
+
+Ext JS: 
+
+Componet ==> UI-class extends 'Ext.Component'
+
+
+Ext JS UI componets - life-cycle phases
+
+
+1. Initialization phase
+2. Render phase
+3. Destruction phase 
+
+
+//--------------------------------------------------------------
+
+
+ 
