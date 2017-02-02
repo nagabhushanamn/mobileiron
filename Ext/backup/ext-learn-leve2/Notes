@@ -1,0 +1,23 @@
+
+
+The benefits using MVC
+
+
+==> Consistency across applications, which reduces learning time
+==> Ease of sharing code between applications
+==> Ability to build optimized apps using Sencha's build tools when using MVC
+
+
+The drawbacks of using MVC
+
+==> Controllers are globally scoped to the application in the Ext JS approach to MVC
+       -> which results in additional business logic to grab references to views, models, and other objects
+
+==> Controllers could be written to watch any object at any time, 
+    so any given controller might have logic for both view A and view B, 
+    leading to additional confusion in large applications.       
+
+==> Unit Testing    
+
+    -> unit testing requires the entire application to be launched in order to test the individual pieces.
+
