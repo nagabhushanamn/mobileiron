@@ -1,0 +1,35 @@
+
+
+//----------------------------------------------------
+
+>sencha generate workspace /your/workspace/path
+
+>sencha generate app BizDash /your/workspace/folder/BizDash
+
+>sencha app build production
+
+
+//----------------------------------------------------
+
+
+Architecting an Ext JS Application
+
+
+> sencha generate model User Name:string,Email:string,TelNumber:string
+
+> sencha generate view location.Map
+> sencha generate view -base Ext.tab.Panel location.Map
+
+> sencha generate controller Location
+
+
+
+> sencha app upgrade path/to/new/framework
+
+> sencha app refresh
+
+
+> sencha app watch
+
+
+
