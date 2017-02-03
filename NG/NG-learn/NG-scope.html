@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+
+    <style>
+        .ng-scope{
+            border: 1px solid red;
+            padding: 10px;
+            margin: 10px;
+        }
+    </style>
+
+
+</head>
+
+<body class="container">
+    <div class="page-header">NG-learn ( scopes )</div>
+    
+    <div ng-app="demo">
+        <hr/>
+        <span class="badge">{{color}}</span><span class="badge">{{color}}</span>
+        <button class="btn" ng-click="changeColor()">change-color</button>
+        <hr/>
+
+        <div class="well" ng-controller="ColorController">
+            <span class="badge">{{color}}</span>
+            <button class="btn" ng-click="changeColor()">change-color</button>
+             <div class="well" ng-controller="TextController">
+                 <span class="badge" style="color: {{color}}">{{text}}</span>
+             </div>   
+        </div>
+
+          <div class="well" ng-controller="ColorController">
+            <span class="badge">{{color}}</span>
+            <button class="btn" ng-click="changeColor()">change-color</button>
+        </div>
+
+
+    </div>
+    
+    
+    <script src="bower_components/angular/angular.js"></script>
+    <script>
+        var mod = angular.module('demo', []);
+        mod.run(function($rootScope){
+            $rootScope.color="red";
+            $rootScope.changeColor=function(){
+                $rootScope.color="green";
+            }
+            $rootScope.$on('color-change',function(e,data){
+                // e.stopPropagation()  // not required on $rootScope
+                $rootScope.color=data.color;
+            });
+        });
+
+        mod.controller('ColorController',function($scope){
+            $scope.color="blue";
+            $scope.changeColor=function(){
+                $scope.color='yellow';
+                //$scope.$parent.color="yellow";
+                //$scope.$emit('color-change',{color:'yellow'});
+                $scope.$broadcast('color-change',{color:'yellow'});
+            }
+        });
+         mod.controller('TextController',function($scope){
+            $scope.text="Welcome";
+            $scope.$on('color-change',function(e,data){
+               console.log('color-change event occured..');
+            });
+        });
+
+    </script>
+</body>
+
+</html>

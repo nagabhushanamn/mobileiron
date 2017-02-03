@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+</head>
+
+<body class="container">
+    <div class="page-header">NG-learn ( 2-way NG-2-way-data-binding.html )</div>
+    <div ng-app="demo">
+        <span class="badge">{{name}}</span><hr/>
+        <div class="well" ng-controller="UserController">
+            <select ng-model="count" ng-options="n for n in [5,10,15,100]"></select>
+            <input ng-model="count"/>
+           <table class="table table-bordered table-condensed">
+               <tr ng-repeat="user in users">
+                   <td>{{user.fname}}</td>
+                   <td>{{user.lname}}</td>
+               </tr>
+           </table>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.11/angular.js"></script>
+    <script>
+        var mod = angular.module('demo', []);
+        mod.controller('UserController', function ($scope,$rootScope,$http) {
+            $scope.count=5;
+            $scope.$watch('count',function(n,o){
+                loadUsers(n);
+            });
+            function loadUsers(count){
+                $http.jsonp(`http://www.filltext.com/?callback=JSON_CALLBACK&rows=${count}&fname={firstName}&lname={lastName}`)
+                .success(function (data) {
+                    $scope.users = data
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

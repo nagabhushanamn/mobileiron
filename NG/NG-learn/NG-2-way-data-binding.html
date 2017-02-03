@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+</head>
+
+<body class="container">
+    <div class="page-header">NG-learn ( 2-way NG-2-way-data-binding.html )</div>
+    <div ng-app="demo">
+        <span class="badge">{{name}}</span><hr/>
+        <div class="well" ng-controller="UserController">
+            <button class="btn" ng-click="loadUser()">Load-(ng-click)</button>
+            <button class="btn" onclick="loadUser()">Load-(on-click)</button>
+            <button class="btn" ng-click="resetUser()">Reset</button>
+            <hr/> Name : <input ng-model="user.name"/>
+            <hr/> Hello : <span class="badge">{{user.name}}</span>
+        </div>
+    </div>
+    <script src="bower_components/angular/angular.js"></script>
+    <script>
+        var mod = angular.module('demo', []);
+        mod.controller('UserController', function ($scope,$rootScope) {
+            $scope.user = { name: 'guest'};
+            $scope.loadUser = function () {
+                // load user...
+                $scope.user = {name: 'Nag' }
+            };
+            window.loadUser=function(){
+                console.log('loading user..');
+                $scope.user = {name: 'Ramesh' }
+                $rootScope.name="Mobileiron";
+                $scope.$digest(); // trigger digest-loop for current-scope
+                $scope.$apply();
+            }
+            $scope.resetUser = function () {
+                // load user...
+                $scope.user = {name: 'guest' }
+            };
+
+            $scope.$watch('user',function(newV,oldV){
+                console.log('my-watcher running thru digest-loop');
+            },true);
+
+        });
+    </script>
+</body>
+
+</html>

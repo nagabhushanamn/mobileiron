@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+</head>
+
+<body class="container">
+    <div class="page-header">IT-Shop</div>
+    <div ng-app="shop">
+        <!--View-->
+        <div ng-controller="ShopController as sc" class="list-group">
+            <div ng-hide="product.notAvailable" ng-repeat="product in sc.products|limitTo:10|orderBy:'price':true" class="list-group-item">
+                <div class="row">
+                    <div class="col-md-3 col-sm-3 col-xs-3">
+                        <img ng-src="{{product.images[0].thumb}}" style="width: 30" class="img-responsive"/>
+                    </div>
+                    <div class="col-md-9 col-sm-9 col-xs-9">
+                        <h4>{{product.name|uppercase}}  <small>{{product.make|date:'yyyy'}}</small></h4>
+                        <h5>{{product.price|priceDiscount:product.discount|currency:'&#8377;':2}}</h5>
+                        <button ng-show="product.canBuy" class="btn btn-primary">buy</button>
+                        <!--<pre><{{product|json}</pre>-->
+                        <hr/>
+                        <section ng-controller="TabsController">
+                            <ul class="nav nav-tabs">
+                                <li ng-class="{active:isTabSelected(1)}"><a href ng-click="changeTab(1)">Description</a></li>
+                                <li ng-class="{active:isTabSelected(2)}"><a href ng-click="changeTab(2)">Specification</a></li>
+                                <li ng-class="{active:isTabSelected(3)}"><a href ng-click="changeTab(3)">Reviews</a></li>
+                            </ul>
+                            <div class="panel" ng-if="isTabSelected(1)">{{product.description}}</div>
+                            <div class="panel" ng-if="isTabSelected(2)">Not Yet</div>
+                            <div class="panel" ng-if="isTabSelected(3)">None Yet</div>
+                        </section>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="shop.js"></script>
+</body>
+
+</html>

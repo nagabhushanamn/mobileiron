@@ -1,0 +1,16 @@
+
+
+How 2-way data-binding in NG ?
+
+
+compilation-pahse
+
+for every model property , will register 'watcher(s)'
+
+watcher(s) ==> read/write whet model's property dirty
+
+all watcher(s) are executed by 'digest-loop'
+
+//-------------------------------------------------
+
+we can aslo register our custom-wacther
