@@ -12,6 +12,10 @@ var items = [{
     discount: 50000,
     images: [
         {thumb:'images/Laptop.png',full:''}
+    ],
+    reviews: [
+        { stars: 5, author: 'nag@gmail.com', comment: 'This is good' },
+        { stars: 2, author: 'ria@gmail.com', comment: 'costly' }
     ]
 }, {
     name: 'Mobile',
@@ -22,6 +26,10 @@ var items = [{
     make: Date.now(),
     images: [
         {thumb:'images/Mobile.png',full:''}
+    ],
+     reviews: [
+        { stars: 5, author: 'nag@gmail.com', comment: 'This is good' },
+        { stars: 2, author: 'ria@gmail.com', comment: 'costly' }
     ]
 }]
 //----------------------------------------
@@ -39,6 +47,13 @@ shopMod.controller('TabsController', function ($scope) {
     }
     $scope.isTabSelected = function (index) {
         return $scope.tab === index;
+    }
+});
+shopMod.controller('ReviewFormController', function ($scope) { 
+    $scope.review = {author:''};
+    $scope.submitReview = function (product) {
+        product.reviews.push($scope.review);
+        $scope.review = {author:''};
     }
 });
 

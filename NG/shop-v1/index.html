@@ -32,7 +32,47 @@
                             </ul>
                             <div class="panel" ng-if="isTabSelected(1)">{{product.description}}</div>
                             <div class="panel" ng-if="isTabSelected(2)">Not Yet</div>
-                            <div class="panel" ng-if="isTabSelected(3)">None Yet</div>
+                            <div class="panel" ng-if="isTabSelected(3)">
+
+                                 <div ng-repeat="review in product.reviews" class="alert alert-info">
+                                     <small>{{review.stars}}</small><span class="glyphicon glyphicon-star"></span>
+                                     | <span>{{review.author}}</span>
+                                     <p>{{review.comment}}</p>
+                                 </div>    
+
+                                 <hr/>
+
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-6" ng-controller="ReviewFormController">
+
+                                        <div class="alert alert-warning" ng-if="review.stars">
+                                            <small>{{review.stars}}</small><span class="glyphicon glyphicon-star"></span>
+                                            | <span>{{review.author}}</span>
+                                            <p>{{review.comment}}</p>
+                                        </div>  
+
+                                         <form ng-submit="submitReview(product)">
+                                            <div class="form-group">
+                                                <label>stars</label>
+                                                <select class="form-control" 
+                                                        ng-options="n for n in [1,2,3,4,5]"
+                                                        ng-model="review.stars">
+                                                </select>
+                                            </div>
+                                             <div class="form-group">
+                                                <label>author</label>
+                                                <input class="form-control" ng-model="review.author" ng-disabled="false"/>
+                                            </div>
+                                             <div class="form-group">
+                                                <label>comment</label>
+                                                <textarea class="form-control" ng-model="review.comment"></textarea>
+                                            </div>
+                                            <button class="btn btn-sm btn-primary">submit</button>
+                                        </form>
+                                    </div>
+                                </div>
+
+                            </div>
                         </section>
 
                     </div>
