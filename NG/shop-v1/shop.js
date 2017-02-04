@@ -1,4 +1,4 @@
-var shopMod = angular.module('shop', []);
+var shopMod = angular.module('shop', ['jcs-autoValidate']);
 
 //----------------------------------------
 // Model  ( loaded from server-side )
@@ -52,8 +52,11 @@ shopMod.controller('TabsController', function ($scope) {
 shopMod.controller('ReviewFormController', function ($scope) { 
     $scope.review = {author:''};
     $scope.submitReview = function (product) {
-        product.reviews.push($scope.review);
-        $scope.review = {author:''};
+        // if ($scope.reviewForm.$valid) {
+            product.reviews.push($scope.review);
+            $scope.review = { author: '' };
+        // }    
+            $scope.reviewForm.$setPristine(true);
     }
 });
 

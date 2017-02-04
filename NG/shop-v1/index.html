@@ -33,15 +33,12 @@
                             <div class="panel" ng-if="isTabSelected(1)">{{product.description}}</div>
                             <div class="panel" ng-if="isTabSelected(2)">Not Yet</div>
                             <div class="panel" ng-if="isTabSelected(3)">
-
                                  <div ng-repeat="review in product.reviews" class="alert alert-info">
                                      <small>{{review.stars}}</small><span class="glyphicon glyphicon-star"></span>
                                      | <span>{{review.author}}</span>
                                      <p>{{review.comment}}</p>
                                  </div>    
-
                                  <hr/>
-
                                 <div class="row">
                                     <div class="col-md-6 col-sm-6" ng-controller="ReviewFormController">
 
@@ -50,25 +47,38 @@
                                             | <span>{{review.author}}</span>
                                             <p>{{review.comment}}</p>
                                         </div>  
-
-                                         <form ng-submit="submitReview(product)">
+                                         <!--<form ng-submit="reviewForm.$valid && submitReview(product)" name="reviewForm" novalidate>-->
+                                            <form ng-submit="submitReview(product)" name="reviewForm" novalidate>
                                             <div class="form-group">
                                                 <label>stars</label>
                                                 <select class="form-control" 
                                                         ng-options="n for n in [1,2,3,4,5]"
+                                                        required
                                                         ng-model="review.stars">
                                                 </select>
                                             </div>
-                                             <div class="form-group">
+                                             <!--<div class="form-group" ng-class="{'has-error':reviewForm.email.$invalid}">-->
+                                                 <div class="form-group">
                                                 <label>author</label>
-                                                <input class="form-control" ng-model="review.author" ng-disabled="false"/>
+                                                <input class="form-control" 
+                                                       ng-model="review.author"
+                                                       required 
+                                                       type="email"
+                                                       name="email"
+                                                       ng-disabled="false"/>
+                                                <!--<div ng-if="reviewForm.email.$error.required" class="help-block">Email is Required</div>-->
+                                                <!--<div ng-if="reviewForm.email.$error.email" class="help-block">Email is Invalid</div>              -->
                                             </div>
                                              <div class="form-group">
                                                 <label>comment</label>
-                                                <textarea class="form-control" ng-model="review.comment"></textarea>
+                                                <textarea required class="form-control" ng-model="review.comment"></textarea>
                                             </div>
-                                            <button class="btn btn-sm btn-primary">submit</button>
+                                            <!--<button class="btn btn-sm btn-primary" ng-disabled="reviewForm.$invalid">submit</button>-->
+                                             <button class="btn btn-sm btn-primary">submit</button>
                                         </form>
+
+                                        <!--<pre>{{reviewForm|json}}</pre>-->
+
                                     </div>
                                 </div>
 
@@ -81,6 +91,7 @@
         </div>
     </div>
     <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-auto-validate/dist/jcs-auto-validate.js"></script>
     <script src="shop.js"></script>
 </body>
 
