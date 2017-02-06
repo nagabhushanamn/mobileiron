@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="bower_components/jquery-ui/themes/ui-darkness/jquery-ui.css" rel="stylesheet">
+
+    <style>
+        div{
+            margin: 5px;
+            padding: 15px;
+        }
+    </style>
+
+</head>
+
+<body class="container">
+    <div class="page-header">NG-learn NG-directive-basics.html</div>
+    
+   
+    <div class="well" ng-app="demo">
+        <div my-dir1="">
+        </div>
+    </div>
+
+
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script>
+        var mod=angular.module('demo',[]);
+        mod.directive('myDir1',function(){
+            return {
+                restrict:'AE',
+                template:'<div class>dir-1 <div my-dir2></div>  </div>',
+                compile:function(ele,attrs){
+                    // DOM manipulation
+                    console.log('myDir1:compile()');
+                    // console.dir(ele);
+                    ele.css('border','1px solid red');
+                    ele.append($('<span class=badge>Nag</span>'));
+
+                    return {
+                        pre:function(scope,element,attrs){
+                            console.log('myDir1:pre()');
+                            scope.company="Mobileiron";
+                        },
+                        post:function(scope,element,attrs){
+                            console.log('myDir1:post()');
+                        }
+                    };
+
+                },
+                controller:function($scope){
+                    // 
+                    console.log('myDir1:controller()');
+                }
+            };
+        });
+
+
+        mod.directive('myDir2',function(){
+            return {
+                restrict:'AE',
+                template:'<div class>dir-2</div>',
+                compile:function(ele,attrs){
+                    // DOM manipulation
+                    console.log('myDir2:compile()');
+                    // console.dir(ele);
+                    ele.css('border','1px solid green');
+                    ele.append($('<span class=badge>Ria - {{myCompany}}</span>'));
+
+                    return {
+                        pre:function(){
+                            console.log('myDir2:pre()');
+                        },
+                        post:function(scope,element,attr){
+                            console.log('myDir2:post()');
+                            scope.myCompany=scope.company;
+                        }
+                    };
+
+                },
+                controller:function($scope){
+                    // 
+                    console.log('myDir2:controller()');
+                }
+            };
+        });
+
+        // shortcut
+
+        mod.directive('myDir3',function(){
+            return {
+                restrict:'AE',
+                template:'<div class>dir-3</div>',
+                controller:function($scope){
+                    // 
+                    console.log('myDir2:controller()');
+                },
+                // post link function
+                link:function(scope,element,attr){
+                            console.log('myDir2:post()');
+                            scope.myCompany=scope.company;
+                }
+            };
+        });
+
+        // refer : https://www.toptal.com/angular-js/angular-js-demystifying-directives
+
+
+    </script
+
+
+
+
+</body>
+
+</html>

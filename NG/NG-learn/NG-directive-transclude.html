@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="bower_components/jquery-ui/themes/ui-darkness/jquery-ui.css" rel="stylesheet">
+
+     <style>
+        .ng-scope,.ng-isolate-scope{
+            border: 1px solid red;
+            padding: 10px;
+            margin: 10px;
+        }
+    </style>
+
+</head>
+
+<body class="container" ng-app="demo">
+    <div class="page-header">NG-learn </div>
+    
+    
+    <div class="well" ng-controller="ColorController">
+        <input ng-model="color"/>
+        <hr/>
+        
+        <div my-hello-world="{menu1:'Pizaa'}">
+            <span class="badge"> by Nag</span>    
+        </div>
+      
+    </div>
+
+
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    
+    <script src="bower_components/angular/angular.js"></script>
+    <script>
+        var mod=angular.module('demo',[]);
+        mod.controller('ColorController',function($scope){
+            $scope.color="#def";
+        });
+        mod.directive('myHelloWorld',function(){
+            return {
+                restrict:'AE',
+                transclude:true,
+                templateUrl:'hello-world.html',
+                link:function(scope,element,attrs){
+                    console.dir(scope.$eval(attrs.myHelloWorld));
+                }
+            }
+        });
+    </script
+
+
+
+
+</body>
+
+</html>

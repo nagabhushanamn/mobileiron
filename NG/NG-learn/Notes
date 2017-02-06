@@ -14,3 +14,49 @@ all watcher(s) are executed by 'digest-loop'
 //-------------------------------------------------
 
 we can aslo register our custom-wacther
+
+//-----------------------------------------------
+
+
+ 
+  NG
+
+  view
+  ------
+  1. controller ==> provide data & behav to view
+  2. filter     ==> filter model properties
+  3. directives ==> provide JS-behav to elements declarativly
+
+  non-view-logic
+  ---------------
+  4. Services   
+
+
+     --> singleton
+     --> lazy instantiated..
+
+     imp: thru DI , will instantiated and injected to others
+
+     
+
+     -----------------
+
+
+     Provider  with factory-method ==> service-instance 
+
+     ----------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

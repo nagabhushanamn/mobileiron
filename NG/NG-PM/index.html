@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+</head>
+
+<body class="container">
+    <div class="page-header"><a href="#/">PM</a></div>
+    <div ng-app="pm">
+        <div class="row">
+            <div class="col-md-3">
+                <ul class="nav nav-stacked">
+                    <li><a href="#/view-all">View-All</a></li>
+                    <li><a href="#/add-new">Add-New</a></li>
+                </ul>
+            </div>
+            <div class="col-md-9">
+                <ui-view></ui-view>
+            </div>
+        </div>
+        <div class="alert alert-info" ng-if="message">
+                {{message}}
+        </div>
+    </div>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="pm.js"></script>
+</body>
+
+</html>

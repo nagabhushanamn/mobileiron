@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="bower_components/jquery-ui/themes/ui-darkness/jquery-ui.css" rel="stylesheet">
+</head>
+
+<body class="container">
+    <div class="page-header">NG-learn NG-directive-basics.html</div>
+    
+    <div class="well">
+        <input />
+    </div>
+    
+    <div class="well" ng-app="demo">
+
+        <div my-hello-world></div>
+        <div my:hello:world></div>
+        <hr/>
+        <my-hello-world></my-hello-world>
+        <my:hello:world></my-hello:world>
+        <hr/>
+
+      
+    </div>
+
+
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/jquery-ui/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $('input').datepicker();
+        });
+    </script>
+
+    <script src="bower_components/angular/angular.js"></script>
+    <script>
+        var mod=angular.module('demo',[]);
+        mod.directive('myHelloWorld',function(){
+            return {
+                restrict:'AE',
+                replace:true,
+                //template:'<h3>Angular world</h3>'
+                templateUrl:'hello-world.html'
+            };
+        });
+    </script
+
+
+
+
+</body>
+
+</html>

@@ -1,5 +1,4 @@
 var shopMod = angular.module('shop', ['jcs-autoValidate']);
-
 //----------------------------------------
 // Model  ( loaded from server-side )
 var items = [{
